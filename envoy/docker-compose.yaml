@@ -1,0 +1,16 @@
+version: '3'
+services:
+  envoy:
+    image: envoyproxy/envoy:v1.18.3
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./envoy/grpc-json-transcoder.yaml:/etc/envoy/envoy.yaml
+      - ./proto-binary/hub/v1alpha1/hub.proto.bin:/etc/envoy/proto.bin
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  hub:
+    ports:
+      - "9080:9080"
+    image: roggia/envoy-16629
+    command: run
