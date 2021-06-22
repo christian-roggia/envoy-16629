@@ -4,10 +4,8 @@ This repository is used to reproduce https://github.com/envoyproxy/envoy/issues/
 
 ## Launch docker-compose
 
-From the root directory execute the following command:
-
 ```
-docker-compose --project-directory . --file envoy/docker-compose.yaml up
+docker-compose up
 ```
 
 ## Test with HTTP/1.1
